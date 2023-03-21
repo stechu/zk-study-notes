@@ -37,7 +37,7 @@ mul: $0 \cdot x_a + 0 \cdot x_b + (-1) \cdot x_c + 1 \cdot (x_a x_b) = 0$
 
 Custom gates are composed by arbitrary linear combinations o add, mul, and bool:
 
-$q_{add} \cdot (a_0 + a_1 - a_2) + y \cdot q_{mul} \cdot (a_0 a_1 - a2) + y^2 \cdot q_{bool} \cdot q_{bool} \cdot (a_0 a_0 - a_0) = 0$
+$q_{add} \cdot (a_0 + a_1 - a_2) + y \cdot q_{mul} \cdot (a_0 a_1 - a2) + y^2 \cdot q_{bool} \cdot (a_0 a_0 - a_0) = 0$
 
 where $y$, $y^2$ are verifier generated challenges to keep gates linearly independent.
 
