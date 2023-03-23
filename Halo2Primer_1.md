@@ -1,5 +1,5 @@
-Halo2 Primer
-================
+Halo2 Primer 1 - Overview
+=========================
 
 Youtube link: https://www.youtube.com/watch?v=W_zlH2mmtZA
 
@@ -48,7 +48,7 @@ What is revolutionary of PLONK (vanilla PLONK) is the permuation arguments that 
 - wires carry values into and out of the gates: "global" consistency check: do the wire correctly join the gates together?
   (for example, in Groth16, routing is baked into the trusted setup)
 
-![vanilla-plonk-gate](vanilla_plonk_gate.png)
+![vanilla-plonk-gate](img/vanilla_plonk_gate.png)
 
 We can express the vanilla PLONK gates into a "table" as below:
 
@@ -62,3 +62,40 @@ Permutation argument is expressed in the language of Lagrange polynomials and ro
 Each wire (column) is encoded as a Lagrange polynomial over the powers (rows) of the n-th root of unity $\{ 1, \omega, \ldots, \omega^{n-1} \}$, where $\omega^n = 1$:
 
 $ w_i (\omega^j) = w_i [j] $
+
+to enforce equality of wires, use permuation argument show that swapping $w_2(\omega^{\theta})$ with $w_{\theta}(\omega^1)$ doesn't change the polynomials.
+
+### Lookup Argument (UltraPLONK)
+
+For example, if you want to encode a very expensive hash function. Instead of writing constraints, you can load a lookup table, say, for the first 8-bits, with precomputed values of result and pre-image. When the prover is trying to use the hash function, it requires that witnesses look the pre-image and digest. You can view this as a lookup on the witness pairs of values. You demand that this pair of values appears in the pre-loaded lookup table. 
+
+> Note: the lookup argument has to be evaluated to true on all rows
+
+![lookup-example](img/lookup_example.png)
+
+### Final Picture of Halo2's PLONKish arithmetisation
+
+![halo2_arithmetisation](img/halo2_arithmetisation.png)
+
+We can conceptualize the circuit as a **matrix** of $m$ columns and $n$ rows. Each column $j$ corresponds to a Lagrange interpolation polynomial $p_j(X)$. Each cell is the column polynomial evaluting to $p_j(\omega^i) = x_{ij}$, where $\omega$ is the $n$-th primitive root of unity.
+
+Halo2 circuit's different kind of columns, (from left to right)
+* Instance columns: public input columns shared among prover/verifier
+* Advice columns: where the prover witness her private values
+* Fixed columns: selectors, preprocessed values set at key generation
+
+Example: How to express Fibonacci sequence in a Halo2 Circuit?
+
+![fibonacci](img/fibonacci.png)
+
+We can first express "local" constraints as follow:
+
+* $q_{fib} \cdot (a_{0, cur} + a_{1, cur} - a_{2, cur}) = 0$
+* $q_{fib} \cdot (a_{0, cur} + a_{1, cur} - a_{0, next}) = 0$
+* $q_{fib} \cdot (a_{1, cur} + a_{2, cur} - a_{1, next}) = 0$
+
+Then, there are global permuation:
+* $a_2[i] = a_0[i+1]$
+* $i_0[0] = a_0[0]$ // initialisation
+* $i_0[0] = a_1[0]$ // initialisation
+* $i_0[2] = a_2[2]$ // output
