@@ -29,8 +29,8 @@ where the $q$ s are pre-processed polynomials, also called selectors.  They are 
 
 You could express `add` and `mul` just using this vanilla gates:
 
-`add`: $1 \cdot x_a + 1 \cdot x_b + (-1) \cdot x_c + 0 \cdot (x_a x_b) = 0$
-`mul`: $0 \cdot x_a + 0 \cdot x_b + (-1) \cdot x_c + 1 \cdot (x_a x_b) = 0$
+* `add`: $1 \cdot x_a + 1 \cdot x_b + (-1) \cdot x_c + 0 \cdot (x_a x_b) = 0$
+* `mul`: $0 \cdot x_a + 0 \cdot x_b + (-1) \cdot x_c + 1 \cdot (x_a x_b) = 0$
 
 
 ### Custom Gates (TurboPlonk)
