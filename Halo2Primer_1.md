@@ -61,7 +61,7 @@ Permutation argument is expressed in the language of Lagrange polynomials and ro
 
 Each wire (column) is encoded as a Lagrange polynomial over the powers (rows) of the n-th root of unity $\{ 1, \omega, \ldots, \omega^{n-1} \}$, where $\omega^n = 1$:
 
-$ w_i (\omega^j) = w_i [j] $
+$w_i (\omega^j) = w_i [j]$
 
 to enforce equality of wires, use permuation argument show that swapping $w_2(\omega^{\theta})$ with $w_{\theta}(\omega^1)$ doesn't change the polynomials.
 
