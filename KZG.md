@@ -1,3 +1,4 @@
+# KZG Polynomial Commitment Scheme
 
 ## Polynomial Commitment Scheme
 
@@ -10,7 +11,8 @@ Prover commits to a polynomial $f(X)$ in $\mathbb{F}^{(\leq d)}_p[X]$  to $com_f
 
 KZG requires a primitive on elliptic curves named **pairing**. Let $\mathbb{G}_1$ and $\mathbb{G_2}$ be two elliptic curves with a pairing $e: \mathbb{G_1} \times \mathbb{G_2} \rightarrow \mathbb{G}_T$ is a bilinear mapping between a pair of one element in $\mathbb{G}_1$, one element in $\mathbb{G}_2$, to an element in a "target" group $\mathbb{G}_T$. Bilinear means:
 
-$$ e(P, Q+R) = e(P, Q) \, e(P, R)$$$$e(P+S, Q) = e(P, Q) \, e(S, R) $$
+$$e(P, Q+R) = e(P, Q) \, e(P, R)$$$$e(P+S, Q) = e(P, Q) \, e(S, R)$$
+
 More can be found in [Vitalik's blog post](https://vitalik.ca/general/2017/01/14/exploring_ecp.html).
 
 ## KZG 
