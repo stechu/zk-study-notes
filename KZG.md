@@ -20,6 +20,7 @@ More can be found in [Vitalik's blog post](https://vitalik.ca/general/2017/01/14
 Group $\mathbb{G}_1 :=\{ 0, G, 2\,G, 3\,G, \ldots, (p-1)\,G\}$ of order $p$, and $\mathbb{G}_2 := \{0, H, 2\, H, 3\,H, \ldots, (q-1) \,H \}$ of order q,  Group $\mathbb{G}_T :=\{ 0, T, 2\,T, 3\,T, \ldots, (r-1)\,T\}$ of order $r$, a pairing $e: \mathbb{G_1} \times \mathbb{G_2} \rightarrow \mathbb{G}_T$ 
 
 > KZG Setup and Commit
+> 
 > $\texttt{setup}(\lambda) \rightarrow (gp, hq)$
 > - sample random $\tau \in \mathbb{F}_p$
 > - $gp = ( H_0 = G, H_i = \tau \, G, H_2 = \tau^2 \, G, \ldots, H-d = \tau^{d} \, G) \in \mathbb{G}^{d+1}$
@@ -36,6 +37,7 @@ $$\exists q \in \mathbb{F}_p[X] \; s.t. \; q(X) \cdot (X-u) = f(X) - v = \hat{f}
 We call $q(X)$ a **quotient polynomial**.  Now we can construct KZG prove and verify algorithm.
 
 > KZG Prove and Verify
+> 
 >$\texttt{Prove}(gp, f, u, v) \rightarrow com_q$
 >- compute $com_q = q(\tau) G$ 
 >
