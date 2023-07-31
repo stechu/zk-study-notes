@@ -18,11 +18,13 @@
 
 For $f,g \in \mathbb{F}_{<d}[X]$ and a permutation $\sigma : [n] \rightarrow [n]$ , we write $g = \sigma (f)$ if for each $i \in [n], g(\mathbb{g}^i) = f(\mathbb{g}^{\sigma(i)})$.  Now we show a ranged polynomial protocol enabling $P_{poly}$ (a.k.a. the prover) to prove that $g=\sigma(f)$.
 
-**Preprocessed polynomials:** For each $i \in [n]$, we have 
+**Preprocessed polynomials:** 
+For each $i \in [n]$, we have 
 - $S_{ID} \in \mathbb{F}_{<n}[X]$ defined by $S_{ID}(\mathbb{g}^i) = i$
 - $S_{\sigma} \in \mathbb{F}_{<n}[X]$ defined by $S_\sigma(\mathbb{g}^i) = \sigma(i)$
 
-**Inputs:** $f, g \in \mathbb{F}_{<n}[X]$
+**Inputs:**
+- $f, g \in \mathbb{F}_{<n}[X]$
 
 **Protocol:**
 1. $V_{poly}$ chooses random $\beta, \gamma \in \mathbb{F}$  and sends them to $P_{poly}$
@@ -50,13 +52,15 @@ f_{((j-1) \cdot n + i)} := f_j(\mathbb{g}^i) \\
 g_{((j-1) \cdot n + i)} := g_j(\mathbb{g}^i)\end{array}$$
 for each $j \in [k], i \in [n]$. Then we have $g_{(l)} = f_{(\sigma(\ell))}$ for each $\ell \in [kn]$.
 
-**Preprocessed Polynomials:** $S_{ID_1}, \ldots, S_{ID_k} \in \mathbb{F}_{<n}[X]$  defined by $S_{ID_j}(\mathbb{g}^i) = (j-1) \cdot n + i$ for each $i \in [n]$ . 
+**Preprocessed Polynomials:** 
+$S_{ID_1}, \ldots, S_{ID_k} \in \mathbb{F}_{<n}[X]$  defined by $S_{ID_j}(\mathbb{g}^i) = (j-1) \cdot n + i$ for each $i \in [n]$ . 
 
 > In practice, only $S_{ID} = S_{ID_1}$ is actually included in the set of preprocessed polynomials, since all others can be computed: $S_{ID_j}(x) = S_{ID}(x) + (j-1) \cdot n$ 
 
 For each $j \in [k]$, $S_{\sigma_j} \in \mathbb{F}_{<n}[X]$, defined by $S_{\sigma_j}(\mathbb{g}^i) = \sigma((j-1)\cdot n + i)$ for each $i \in [n]$. 
 
-**Inputs:** $f_1, \ldots, f_k, g_1, \ldots, g_k \in \mathbb{F}_{<n}[X]$
+**Inputs:** 
+$f_1, \ldots, f_k, g_1, \ldots, g_k \in \mathbb{F}_{<n}[X]$
 
 **Protocol:**
 1. $V_{poly}$ chooses random $\beta, \gamma \in \mathbb{F}$ and sends them to $P_{poly}$
